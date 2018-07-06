@@ -37,6 +37,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'scrub_db', '~> 2.23'
   spec.add_dependency 'url_verifier', '~> 2.12'
   spec.add_dependency 'utf8_sanitizer', '~> 2.16'
+  spec.add_dependency 'faker', '~> 1.8', '>= 1.8.7'
 
   # spec.add_dependency "activesupport-inflector", ['~> 0.1.0']
   spec.add_development_dependency 'bundler', '~> 1.16', '>= 1.16.2'
