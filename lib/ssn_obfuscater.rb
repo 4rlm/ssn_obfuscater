@@ -2,7 +2,7 @@ require "ssn_obfuscater/version"
 
 require "ssn_obfuscater/solver"
 # require 'mechanizer'
-require 'faker'
+# require 'faker'
 require 'pry'
 
 module SsnObfuscater
