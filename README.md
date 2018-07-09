@@ -5,7 +5,6 @@
 
 #### Protects client data by detecting and obfuscating social security numbers (ssn).
 
-Note: Currently being moved from local environment to this gem.  Will be completed by 7/10/18
 
 ## Installation
 
@@ -25,7 +24,32 @@ Or install it yourself as:
 
 ## Usage
 
-Note: Currently being moved from local environment to this gem.  Will be completed by 7/10/18
+1) Add your text to a hash with `:text` symbol key, then pass the arguments to `SsnObfuscater.parse(args)` like the example below.  If you don't pass any args, and just run `SsnObfuscater.parse` it will return sample data for testing.
+
+***Note: Social Security Numbers beginning with 000 are not genuine, so this example does not include a real social security number.  It is all fake data generated for testing purposes only.***
+
+```
+text = "Dillan Richmond Gorczany, 8/16/1954, 000-12-3456, richmond.gorczany.dillan@jacobs.io, 405.226.5344, 2012 Erling Pass, Eagle Square, East Dwight, PA, 25733, Dynamic Manufacturing, VP of Tech"
+
+result_hash = SsnObfuscater.parse(text: text)
+```
+
+
+2) The returned data will be in hash format like below:
+
+Note the text below is a sample profile of an employee including phone, mailing address, email, DOB, SSN, IP address, and job position.  Imagine this were a much longer text document where the SSN is more difficult to spot with the naked eye.   SsnObfuscater can detect the SSN and render a safe obfuscated version of the text.
+
+You can access the data, like so: `result_hash[:ssn_obf]` and `result_hash[:safe_text]`
+
+```
+{:ssn_alert=>true,
+ :ssn=>"000-12-3456",
+ :ssn_obf=>"XXX-XX-3456",
+ :safe_text=>
+  "Dillan Richmond Gorczany, 8/16/1954, XXX-XX-3456, richmond.gorczany.dillan@jacobs.io, 405.226.5344, 2012 Erling Pass, Eagle Square, East Dwight, PA, 25733, Dynamic Manufacturing, VP of Tech"
+}
+```
+
 
 ## Development
 

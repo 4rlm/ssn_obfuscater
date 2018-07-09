@@ -18,22 +18,15 @@ task :console do
   require "active_support/all"
   ARGV.clear
 
-  scraped_links = run_sudoku
-  # binding.pry
+  result_hash = run_ssn
 
   IRB.start
 end
 
 
-def run_sudoku
-  binding.pry
-  solve = SsnObfuscater::Solver.new
-  res = solve.start
-  binding.pry
+def run_ssn
+  text = "Dillan Richmond Gorczany, 8/16/1954, 000-12-3456, richmond.gorczany.dillan@jacobs.io, 405.226.5344, 2012 Erling Pass, Eagle Square, East Dwight, PA, 25733, Dynamic Manufacturing, VP of Tech"
 
-  # scraper = LinkScraper::Scrape.new({text_criteria: text_criteria, path_criteria: path_criteria})
-  # scraped_links = scraper.start('https://en.wikipedia.org/wiki/Austin%2C_Texas')
-  # binding.pry
-
+  result_hash = SsnObfuscater.parse(text: text)
   # scraper = LinkScraper::Scrape.new(WebsCriteria.all_scrub_web_criteria)
 end
