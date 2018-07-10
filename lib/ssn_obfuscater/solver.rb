@@ -9,18 +9,18 @@ module SsnObfuscater
       result_hash = find_ssn_in_string(text)
       result_hash.is_a?(::Hash) ? result_hash : nil
       # safe_string_block = make_string_block_safe(result_hash, text)
-      result_hash
     end
 
 
-    def parse_string_block(text)
-      strings = text.split(/\.\s+|!|\?/)
-      strings = strings.map { |str|  str.squeeze(' ') }
-      strings = strings.map(&:strip)
-    end
+    # def parse_string_block(text)
+    #   strings = text.split(/\.\s+|!|\?/)
+    #   strings = strings.map { |str|  str.squeeze(' ') }
+    #   strings = strings.map(&:strip)
+    # end
 
 
     def find_ssn_in_string(string)
+      result_hash = {}
       if string.present?
         ssn = string.scan(/\d{3}-\d{2}-\d{4}/).join(', ')
         if ssn.present?
@@ -29,16 +29,17 @@ module SsnObfuscater
           result_hash = { ssn_alert: ssn.present?, ssn: ssn, ssn_obf: ssn_obf, safe_text: string }
         end
       end
+      result_hash
     end
 
 
-    def make_string_block_safe(result_hashes, text)
-      result_hashes.map do |hsh|
-        ssn = hsh[:ssn]
-        text.gsub!(ssn, hsh[:ssn_obf])
-      end
-      text
-    end
+    # def make_string_block_safe(result_hashes, text)
+    #   result_hashes.map do |hsh|
+    #     ssn = hsh[:ssn]
+    #     text.gsub!(ssn, hsh[:ssn_obf])
+    #   end
+    #   text
+    # end
 
 
     # Obfuscate all Social Security Numbers. Example: XXX-XX-4430.
