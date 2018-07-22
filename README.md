@@ -1,5 +1,6 @@
 # SsnObfuscater
 
+[![Build Status](https://travis-ci.org/4rlm/ssn_obfuscater.svg?branch=master)](https://travis-ci.org/4rlm/ssn_obfuscater)
 [![Gem Version](https://badge.fury.io/rb/ssn_obfuscater.svg)](https://badge.fury.io/rb/ssn_obfuscater)
 [![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
